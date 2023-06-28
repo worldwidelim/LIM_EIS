@@ -10,7 +10,7 @@ save_path = data_folder;
 
 I_1C = 0.00382; % [A], 0.01C에서 3.81986E-005이므로 1C에서는 0.00382
 n_hd = 14; % headline number used in 'readtable' option
-sample_plot = 1;
+sample_plot = 1; % 폴더 안 첫 번째 파일 열겠어
 
 
 %% Engine 
