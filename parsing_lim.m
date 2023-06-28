@@ -5,7 +5,7 @@ clc; clear; close all;
 %% Interface
 
 % Path 지정
-data_folder = 'G:\공유 드라이브\Battery Software Lab\Data\Hyundai_dataset\OCV\FCC_(5)_OCV_C100';
+data_folder = 'G:\공유 드라이브\Battery Software Lab\Data\Hyundai_dataset\OCV\FCC_(5)_OCV_C100'; % 1/100C
 save_path = data_folder;
 
 I_1C = 0.00382; % [A], 0.01C에서 3.81986E-005이므로 1C에서는 0.00382
