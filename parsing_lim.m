@@ -5,12 +5,12 @@ clc; clear; close all;
 %% Interface
 
 % Path 지정
-data_folder = 'G:\공유 드라이브\Battery Software Lab\Data\Hyundai_dataset\OCV\FCC_(5)_OCV_C100';
+data_folder = 'G:\공유 드라이브\Battery Software Lab\Data\Hyundai_dataset\OCV\FCC_(5)_OCV_C100'; % 1/100C
 save_path = data_folder;
 
 I_1C = 0.00382; % [A], 0.01C에서 3.81986E-005이므로 1C에서는 0.00382
 n_hd = 14; % headline number used in 'readtable' option
-sample_plot = 1;
+sample_plot = 1; % 폴더 안 첫 번째 파일 열겠어
 
 
 %% Engine 
@@ -22,7 +22,7 @@ for i = 1:length(files)
     fullpath_now = [data_folder slash files(i).name]; % path for i-th file in the folder
     % files(i).name 은 구조체의 'i'번째 요소에 저장된 파일이나 폴더의 이름을 나타냄
     % .name을 붙이면 파일이나 폴더의 이름을 추출할 수 있음
-    data_now = readtable(fullpath_now,'FileType','text','NumHeaderLines',n_hd,'ReadVariableNames',0) % load the data
+    data_now = readtable(fullpath_now,'FileType','text','NumHeaderLines',n_hd,'ReadVariableNames',0); % load the data
     % readtable은 텍스트 파일이나 스프레드시트 파일을 읽어들여 table 형식으로 반환하는 함수
     % FileType은 파일의 유형 또는 확장자를 나타내는 용어
     % NumHeaderLines은 건너뛸 라인 수
@@ -69,7 +69,7 @@ for i = 1:length(files)
 
        % check for error, if any step has more than one types
        vec_step = unique(data1.step); % unique 함수는 배열 또는 벡터에서 중복된 요소를 제거하고 고유한 요소만을 변환하는 데 사용됨. 1 1 1 2 2 2 2 3 3  -> 1 2 3 
-       num_step = length(vec_step) % m의 개수
+       num_step = length(vec_step); % m의 개수
        for i_step = 1 : num_step
            type_in_step = unique(data1.type(data1.step == vec_step(i_step)));
 
