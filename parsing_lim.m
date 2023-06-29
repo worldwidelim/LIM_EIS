@@ -81,20 +81,20 @@ for i = 1:length(files)
            end
        end
        
-       % plot for selected samples
+        % plot for selected samples
        if any(ismember(sample_plot,i)) % ismember(A,B)는 A의 데이터를 B에서 찾은 경우 논리값 1(true), 아니면 논리값 0(false). ismember(A,B)의 크기는 A와 동일
-           % result = any(A) : result는 A의 요소 중 하나 이상이 true인 경우 true로 설정되고, 모든 요소가 false인 경우에만 false로 설정됨
-           figure
-           title(strjoin(strsplit(files(i).name,'_'),' '))
-           % strsplit는 문자열을 특정 구분자를 기준으로 분할하는 데 사용되는 함수. strsplit(files(i).name,'_') : files(i).name을 _를 기준으로 분할함
-           % strjoin은 문자열들을 구분자로 구분하여 하나의 문자열로 결합할 수 있음
-           plot(data1.t/3600, data1.V, 'r-') % 시간에 대한 전압 그래프, x축 : 총 실험시간(s)/3600 -> 단위를 hr로 바꿈
-           xlabel('time (hours)')
-           ylabel('voltage (V)')
+          % result = any(A) : result는 A의 요소 중 하나 이상이 true인 경우 true로 설정되고, 모든 요소가 false인 경우에만 false로 설정됨
+          figure
+          plot(data1.t/3600, data1.V, 'r-') % 시간에 대한 전압 그래프, x축 : 총 실험시간(s)/3600 -> 단위를 hr로 바꿈
+          xlabel('time (hours)')
+          ylabel('voltage (V)')
+          title(strjoin(strsplit(files(i).name,'_'),' '))
+          % strsplit는 문자열을 특정 구분자를 기준으로 분할하는 데 사용되는 함수. strsplit(files(i).name,'_') : files(i).name을 _를 기준으로 분할함
+          % strjoin은 문자열들을 구분자로 구분하여 하나의 문자열로 결합할 수 있음
 
-           yyaxis right % 두 개의 y축이 있는 차트 생성
-           plot(data1.t/3600, data1.I/I_1C, 'b-') % I_1C로 나누어주면 3.82012E-004/0.00382=0.1C로 정리됨
-           ylabel('current (C)')
+          yyaxis right % 두 개의 y축이 있는 차트 생성
+          plot(data1.t/3600, data1.I/I_1C, 'b-') % I_1C로 나누어주면 3.82012E-004/0.00382=0.1C로 정리됨
+          ylabel('current (C)')
        end
 
 
