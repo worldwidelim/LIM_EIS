@@ -30,11 +30,11 @@ A = 1;
 
 % impedance calculation
 Z_W = A .* (1 - 1i) ./ sqrt(w); % Z_W : Warburg impedance
-Z_RW = R + Z_W % R - Z_W : series
-Z_C = 1 ./ (1i*w*C)
+Z_RW = R + Z_W; % R - Z_W : series
+Z_C = 1 ./ (1i*w*C);
 
 % total impedance calculation
-Z_total = (Z_RW .* Z_C) ./ (Z_RW + Z_C) % C - R, Z_W : parallel
+Z_total = (Z_RW .* Z_C) ./ (Z_RW + Z_C); % C - R, Z_W : parallel
 
 % plot
 plot(real(Z_total), -imag(Z_total));
@@ -78,9 +78,9 @@ Z_total_noisy = (Z_RW_noisy .* Z_C_noisy) ./ (Z_RW_noisy + Z_C_noisy);
 
 % plot
 figure;
-plot(real(Z_total), -imag(Z_total), 'b')
+plot(real(Z_total), -imag(Z_total), 'b');
 hold on;
-plot(real(Z_total_noisy), -imag(Z_total_noisy), 'r')
+plot(real(Z_total_noisy), -imag(Z_total_noisy), 'r');
 xlim([0, 3]);
 xlabel('Real(Z)');
 ylabel('-Imaginary(Z)');
