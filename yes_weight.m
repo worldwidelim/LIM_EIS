@@ -1,3 +1,5 @@
+clear; clc; close all;
+
 % frequency vector
 f = logspace(-3, 3, 120); % 20 ppd -> 20*6=120
 w = 2*pi*f;
