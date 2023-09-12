@@ -24,7 +24,7 @@ Im_Z = -data(3, :);
 figure;
 plot(Re_Z, -Im_Z, 'b', 'LineWidth', 1.5);
 xlabel('Re(Z) (Ohm)');
-ylabel('Im(Z) (Ohm)');
+ylabel('-Im(Z) (Ohm)');
 title('Impedance');
 legend('real data');
 
