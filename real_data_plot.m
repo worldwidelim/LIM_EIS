@@ -15,7 +15,7 @@ data = fscanf(fileID, '%f\t%f\t%f', [3, Inf]);
 % Close the file
 fclose(fileID);
 
-% Store data in variables
+% Save data in variables
 freq = data(1, :);
 Re_Z = data(2, :);
 Im_Z = -data(3, :);
