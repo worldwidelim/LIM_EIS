@@ -22,7 +22,7 @@ z_syn = z_mod + z_re_noise + 1i*z_im_noise;
 w_switch = 0; % choose between minimizing (0) absolute error; (1) relative error
 % if minimizing the relative error
 if w_switch == 1
-    weight = (z_syn.^2 + abs(z_syn).^2).^0.5; % 수정
+    weight = (real(z_syn).^2 + imag(z_syn).^2).^0.5;
     weight_matrix = [weight weight];
 % if minimizing the absolute error
 elseif w_switch == 0
