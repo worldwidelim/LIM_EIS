@@ -24,10 +24,10 @@ Im_Z = -data(3, :);
 w = 2 * pi * freq;
 
 % parameter
-R1 = 0.01;
-R2 = 0.01;
-C = 1;
-A = 1;
+R1 = 0.03;
+R2 = 0.017;
+C = 0.1;
+A = 0.03;
 params = [R1, R2, C, A];
 
 % model calculation
