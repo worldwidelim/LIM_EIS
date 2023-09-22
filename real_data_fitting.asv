@@ -3,22 +3,16 @@ clear; clc; close all;
 % Set the filename
 filename = 'C:\Users\hyoju\Desktop\eis\eis_data.txt';
 
-% Open the file for reading
-fileID = fopen(filename, 'r');
+% Read the data using readtable
+data = readtable(filename, 'Delimiter', '\t', 'HeaderLines', 1, 'ReadVariableNames', false);
 
-% Skip the first row (header)
-fgetl(fileID);
+% Rename the variables
+data.Properties.VariableNames = {'freq', 'Re_Z', 'Im_Z'};
 
-% Read the data
-data = fscanf(fileID, '%f\t%f\t%f', [3, Inf]);
-
-% Close the file
-fclose(fileID);
-
-% Save data in variables
-freq = data(1, :);
-Re_Z = data(2, :);
-Im_Z = -data(3, :);
+% Extract data from the table
+freq = data.freq;
+Re_Z = data.Re_Z;
+Im_Z = -data.Im_Z;
 
 % Use the frequency from the data
 w = 2 * pi * freq;
