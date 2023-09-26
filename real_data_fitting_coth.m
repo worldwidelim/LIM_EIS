@@ -30,7 +30,7 @@ z_mod = z_model(w, params);
 
 % fitting
 options = optimoptions('fmincon', 'Display', 'iter');
-params_fit = fmincon(@(params) rmse(z_model(w, params), Re_Z - 1i * Im_Z), params, [], [], [], [], [0, 0, 0, 0, 0], [Inf, Inf, Inf, Inf, Inf], [], options);
+params_fit = fmincon(@(params) rmse(z_model(w, params), Re_Z + 1i * Im_Z), params, [], [], [], [], [0, 0, 0, 0, 0], [Inf, Inf, Inf, Inf, Inf], [], options);
 
 % Extract the fitted parameters
 R1_fit = params_fit(1);
