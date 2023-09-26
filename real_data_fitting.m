@@ -17,7 +17,7 @@ fclose(fileID);
 
 % Save data in variables
 freq = data(1, :);
-Z_data = data(2,:) - 1i*data(3,:);
+Z_data = data(2,:) - 1i*data(3,:); % Z_data = Re(Z) + Im(Z)
 
 % Use the frequency from the data
 w = 2 * pi * freq;
