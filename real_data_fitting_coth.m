@@ -1,7 +1,7 @@
 clear; clc; close all;
 
 % Set the filename
-filename = 'C:\Users\jsong\Documents\MATLAB\BSL_EIS\4_data\example1_eis_fc_soc48_t25.txt';
+filename = 'C:\Users\hyoju\Desktop\eis\eis_data.txt';
 
 % Read the data using readtable
 data = readtable(filename, 'Delimiter', '\t', 'HeaderLines', 1, 'ReadVariableNames', false);
