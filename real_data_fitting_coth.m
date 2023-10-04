@@ -17,7 +17,7 @@ Im_Z = -data.Im_Z;
 % Use the frequency from the data
 w = 2 * pi * freq;
 
-% parameter
+% initial guess
 R1 = 0.03;
 R2 = 0.017;
 C = 0.1;
@@ -48,15 +48,16 @@ disp(['Fitted t: ', num2str(t_fit)]);
 
 % Plot real data and fitted curve
 figure;
-plot(Re_Z, -Im_Z, 'b', 'LineWidth', 1.5);
+plot(real(z_mod), -imag(z_mod),'g')
+hold on;
+plot(Re_Z, -Im_Z, 'b', 'LineWidth', 1.5)
 hold on;
 fitted_Z = z_model(w, params_fit);
-plot(real(fitted_Z), -imag(fitted_Z), 'r', 'LineWidth', 1.5);
-plot(real(z_mod), -imag(z_mod),'g')
+plot(real(fitted_Z), -imag(fitted_Z), 'r', 'LineWidth', 1.5)
 xlabel('Re(Z) (Ohm)');
 ylabel('-Im(Z) (Ohm)');
 title('Impedance');
-legend('real data', 'fitted curve');
+legend('initial guess', 'real data', 'fitted curve');
 axis([0 0.15 0 0.15])
 
 function [cost] = rmse(w, params, z_data)
@@ -65,8 +66,8 @@ function [cost] = rmse(w, params, z_data)
 end
 
 function [Z] = z_model(w, params)
-    R1 = 0.0295;
-    R2 = 0.0169;
+    R1 = params(1);
+    R2 = params(2);
     C = params(3);
     A = params(4);
     t = params(5);
